@@ -1,0 +1,17 @@
+RYCHLÝ START
+
+WINDOWS
+1. Rozbalte ZIP.
+2. Dvakrát klikněte na SPUSTIT_WINDOWS.bat.
+3. Na počítači otevřete http://localhost:8080
+4. Telefon musí být ve stejné Wi-Fi.
+5. V příkazovém řádku Windows spusťte ipconfig a najděte IPv4 adresu.
+6. V telefonu otevřete například http://192.168.1.25:8080
+
+UBUNTU / LINUX
+1. Rozbalte ZIP.
+2. V adresáři spusťte ./SPUSTIT_LINUX.sh
+3. IP adresu zjistíte příkazem hostname -I
+4. V telefonu otevřete například http://192.168.1.25:8080
+
+V aplikaci nejprve klikněte na „Načíst ukázku“.
