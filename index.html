@@ -1,113 +1,29 @@
 <!doctype html>
-<html lang="cs">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#111827" />
-  <title>Inventura Storyous</title>
-  <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
+<html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ef5350"><title>Inventura PFC</title><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="styles.css"></head>
 <body>
-  <header class="topbar">
-    <div>
-      <h1>Inventura</h1>
-      <div id="statusText" class="subtle">Připraveno</div>
-    </div>
-    <button id="menuBtn" class="icon-btn" aria-label="Nabídka">☰</button>
-  </header>
-
-  <main>
-    <section id="setupPanel" class="panel">
-      <h2>1. Načtení položek</h2>
-      <p>Importujte CSV export skladových karet. Povinné sloupce: <code>nazev</code>, <code>jednotka</code>. Volitelné: <code>kod</code>, <code>sklad</code>, <code>kategorie</code>, <code>poradi</code>.</p>
-      <div class="actions">
-        <label class="button primary">
-          Importovat CSV
-          <input id="csvInput" type="file" accept=".csv,text/csv" hidden />
-        </label>
-        <button id="loadDemoBtn" class="button">Načíst ukázku</button>
-      </div>
-      <details>
-        <summary>Formát CSV</summary>
-        <pre>kod;nazev;jednotka;sklad;kategorie;poradi
-PU05;Pilsner Urquell 0,5 l;ks;BAR;Lahvové pivo;10
-HRAN;Hranolky 9x9;kg;GRILL;Mražené;20</pre>
-      </details>
-    </section>
-
-    <section id="inventoryPanel" class="panel hidden">
-      <div class="filters">
-        <label>
-          Sklad
-          <select id="warehouseFilter"></select>
-        </label>
-        <label>
-          Kategorie
-          <select id="categoryFilter"></select>
-        </label>
-        <label>
-          Hledat
-          <input id="searchInput" type="search" placeholder="Název nebo kód" />
-        </label>
-      </div>
-
-      <div class="progress-wrap">
-        <div class="progress-line">
-          <strong id="progressText">0 / 0</strong>
-          <span id="differenceText" class="subtle"></span>
-        </div>
-        <progress id="progressBar" value="0" max="100"></progress>
-      </div>
-
-      <div id="itemsList" class="items-list"></div>
-
-      <div class="sticky-actions">
-        <button id="voiceBtn" class="button voice">🎤 Hlasové zadání</button>
-        <button id="exportBtn" class="button primary">Export CSV</button>
-      </div>
-    </section>
-  </main>
-
-  <aside id="drawer" class="drawer hidden">
-    <div class="drawer-card">
-      <button id="closeDrawerBtn" class="icon-btn drawer-close">✕</button>
-      <h2>Nabídka</h2>
-      <button id="newInventoryBtn" class="button danger">Vymazat aktuální inventuru</button>
-      <button id="exportBackupBtn" class="button">Export zálohy JSON</button>
-      <label class="button">
-        Import zálohy JSON
-        <input id="backupInput" type="file" accept=".json,application/json" hidden />
-      </label>
-      <button id="showSetupBtn" class="button">Změnit seznam položek</button>
-      <p class="subtle small">Data se ukládají pouze lokálně v tomto zařízení.</p>
-    </div>
-  </aside>
-
-  <dialog id="voiceDialog">
-    <form method="dialog" class="dialog-card">
-      <h2>Hlasové zadání</h2>
-      <p id="voiceState">Řekněte například: „Plzeň čtrnáct kusů“.</p>
-      <div id="voiceTranscript" class="transcript"></div>
-      <div class="actions">
-        <button id="startVoiceBtn" type="button" class="button primary">Spustit poslech</button>
-        <button class="button">Zavřít</button>
-      </div>
-    </form>
-  </dialog>
-
-  <dialog id="matchDialog">
-    <form method="dialog" class="dialog-card">
-      <h2>Potvrdit položku</h2>
-      <p id="matchSummary"></p>
-      <div id="matchOptions"></div>
-      <div class="actions">
-        <button id="confirmMatchBtn" type="button" class="button primary">Uložit</button>
-        <button class="button">Zrušit</button>
-      </div>
-    </form>
-  </dialog>
-
-  <script src="app.js"></script>
-</body>
-</html>
+<header><div><b>Inventura PFC</b><small id="status">PFC Bar · 120 položek</small></div><button id="menu">☰</button></header>
+<main>
+<section id="home" class="screen">
+  <div class="hero"><h1>Inventura PFC Bar</h1><p>Skutečný stav zadávej přímo v telefonu. Každá hodnota se automaticky uloží.</p></div>
+  <div class="summary"><div><strong id="doneCount">0</strong><span>zadáno</span></div><div><strong id="leftCount">120</strong><span>zbývá</span></div><div><strong id="pct">0 %</strong><span>hotovo</span></div></div>
+  <button id="start" class="primary big">Pokračovat v inventuře</button>
+  <button id="listBtn" class="secondary big">Zobrazit celý seznam</button>
+  <label class="secondary big file">Načíst nový export Storyous<input id="csv" type="file" accept=".csv,text/csv" hidden></label>
+</section>
+<section id="quick" class="screen hidden">
+ <div class="quickTop"><button id="backHome">←</button><div id="progressLabel">1 / 120</div><button id="skip">Přeskočit</button></div>
+ <progress id="progress" max="120" value="0"></progress>
+ <article class="card">
+   <div id="place" class="pill"></div><h2 id="name"></h2><div id="meta" class="meta"></div>
+   <div class="qty"><button id="minus">−</button><input id="qty" inputmode="decimal" autocomplete="off" placeholder="0"><span id="unit"></span><button id="plus">+</button></div>
+   <div class="quickNums"><button data-v="0">0</button><button data-v="0.25">¼</button><button data-v="0.5">½</button><button data-v="0.75">¾</button><button id="clear">Smazat</button></div>
+ </article>
+ <div class="nav"><button id="prev">← Předchozí</button><button id="next" class="primary">Další →</button></div>
+</section>
+<section id="list" class="screen hidden">
+ <div class="listHead"><button id="listBack">←</button><input id="search" type="search" placeholder="Hledat položku"><select id="category"></select></div>
+ <div id="rows"></div>
+</section>
+</main>
+<dialog id="drawer"><div class="drawer"><button id="close">✕</button><h2>Nabídka</h2><button id="export">Export inventury CSV</button><button id="backup">Záloha JSON</button><button id="reset" class="danger">Vymazat zadané hodnoty</button><p>Verze 0.2 · data zůstávají v tomto telefonu.</p></div></dialog>
+<script src="cards.js"></script><script src="app.js"></script></body></html>
