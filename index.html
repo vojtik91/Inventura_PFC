@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ef5350"><title>Inventury PFC · Déčko</title><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="styles.css"></head>
+<html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ef5350"><title>Inventury PFC · Déčko</title><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="styles.css?v=04"></head>
 <body>
 <header><div><b>Inventury</b><small id="status"></small></div><button id="menu" aria-label="Nabídka">☰</button></header>
 <main>
@@ -24,7 +24,7 @@
    <div id="calculator" class="calculator hidden">
      <label>Počet plných obalů<input id="fullCount" inputmode="decimal" type="number" min="0" step="1" placeholder="0"></label>
      <label>Objem jednoho obalu<input id="packSize" inputmode="decimal" type="number" min="0" step="0.01"><span>l</span></label>
-     <label>Zbytek v otevřeném obalu<input id="remainderMl" inputmode="numeric" type="number" min="0" step="1" placeholder="0"><span>ml</span></label>
+     <label><span id="remainderLabel">Zbytek v otevřeném obalu</span><input id="remainderMl" inputmode="decimal" type="number" min="0" step="0.01" placeholder="0"><span id="remainderUnit">ml</span></label>
      <button id="applyCalc" class="primary">Použít výsledek</button><small id="calcResult"></small>
    </div>
    <div class="quickNums"><button data-v="0">0</button><button data-v="0.25">¼</button><button data-v="0.5">½</button><button data-v="0.75">¾</button><button id="clear">Smazat</button></div>
@@ -35,6 +35,17 @@
  <div class="listHead"><button id="listBack">←</button><input id="search" type="search" placeholder="Hledat položku"><select id="category"></select></div>
  <div class="callout">Součet ze všech míst. Hodnota vpravo je připravená v jednotce skladové karty Storyous.</div><div id="rows"></div>
 </section>
+
+<section id="complete" class="screen hidden">
+  <div class="completion">
+    <div class="completeMark">✓</div>
+    <h2 id="completeTitle"></h2>
+    <p id="completeText"></p>
+    <button id="continueNext" class="primary big"></button>
+    <button id="completeLocations" class="secondary big">Vybrat jiné místo</button>
+    <button id="completeHome" class="secondary big">Zpět na úvod</button>
+  </div>
+</section>
 </main>
-<dialog id="drawer"><div class="drawer"><button id="close">✕</button><h2>Nabídka</h2><button id="export">Export souhrnu CSV</button><button id="backup">Záloha JSON</button><label class="drawerFile">Načíst export Storyous<input id="csv" type="file" accept=".csv,text/csv" hidden></label><button id="reset" class="danger">Vymazat inventuru</button><p>Verze 0.3 · data zůstávají v tomto telefonu.</p></div></dialog>
-<script src="data.js"></script><script src="app.js"></script></body></html>
+<dialog id="drawer"><div class="drawer"><button id="close">✕</button><h2>Nabídka</h2><button id="export">Export souhrnu CSV</button><button id="backup">Záloha JSON</button><label class="drawerFile">Načíst export Storyous<input id="csv" type="file" accept=".csv,text/csv" hidden></label><button id="reset" class="danger">Vymazat inventuru</button><p>Verze 0.4 · data zůstávají v tomto telefonu.</p></div></dialog>
+<script src="data.js?v=04"></script><script src="app.js?v=04"></script></body></html>

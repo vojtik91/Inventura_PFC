@@ -1,15 +1,13 @@
-Inventury PFC + Déčko v0.3
+Inventury PFC + Déčko v0.4
 
-Nahraj všechny soubory do kořene GitHub repozitáře a nahraď původní soubory.
-Po nasazení aplikaci v telefonu úplně zavři a znovu spusť. Pokud se stále zobrazuje stará verze, v prohlížeči obnov stránku nebo vymaž data webu.
+Změny:
+- opraveno tlačítko „Vybrat místo“
+- Jeskyně / sklep je aktivní a obsahuje sudové skladové karty
+- prázdné sudy ani ostatní vratné obaly se neevidují
+- po poslední položce místa aplikace nabídne pokračování na další místo
+- sudy lze zadat jako počet plných sudů + litry v načatém sudu
+- výsledek se přepočte do jednotky konkrétní skladové karty Storyous
+- nová cache v0.4, aby telefon nenačítal starý JavaScript
 
-PFC Bar:
-- pořadí podle míst: Sklad → Regál → Nealko lednice → Vinotéka → Chladicí box
-- Jeskyně/sklep je připravená, ale sudy jsou vypnuté
-- vratné obaly jsou vypnuté
-- jedna karta může být na více místech a aplikace ji automaticky sečte
-- u karet v litrech je dostupný přepočet plných obalů + zbytku v ml
-
-Déčko:
-- načteno 71 skutečných skladových karet
-- zatím jedna společná sekce, fyzickou mapu doplníme později
+Nahraj všechny soubory do kořene GitHub repozitáře a nahraď původní.
+Po aktualizaci aplikaci jednou úplně zavři a znovu spusť.
