@@ -1,13 +1,11 @@
-Inventury PFC + Déčko v0.4
+Inventury PFC + Déčko v0.5
 
-Změny:
-- opraveno tlačítko „Vybrat místo“
-- Jeskyně / sklep je aktivní a obsahuje sudové skladové karty
-- prázdné sudy ani ostatní vratné obaly se neevidují
-- po poslední položce místa aplikace nabídne pokračování na další místo
-- sudy lze zadat jako počet plných sudů + litry v načatém sudu
-- výsledek se přepočte do jednotky konkrétní skladové karty Storyous
-- nová cache v0.4, aby telefon nenačítal starý JavaScript
+- aktualizováno na 82 skladových karet PFC Bar
+- sudová piva vedená v litrech: zadání plných KEG 50/30/15 l a váhy načatého sudu
+- váha načatého sudu se po odečtení obalu převede přibližně 1 kg = 1 l
+- Spirit vedený v litrech: počet plných lahví + hmotnost načaté lahve
+- editovatelná hmotnost prázdných KEGů, prázdných a plných lahví
+- prázdné sudy se do inventury nezadávají
 
-Nahraj všechny soubory do kořene GitHub repozitáře a nahraď původní.
-Po aktualizaci aplikaci jednou úplně zavři a znovu spusť.
+Nahraj všechny soubory do kořene GitHub Pages repozitáře a nahraď staré soubory.
+Po aktualizaci aplikaci úplně zavři a znovu otevři.
