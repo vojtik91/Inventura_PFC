@@ -1,29 +1,40 @@
 <!doctype html>
-<html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ef5350"><title>Inventura PFC</title><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="styles.css"></head>
+<html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ef5350"><title>Inventury PFC · Déčko</title><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="styles.css"></head>
 <body>
-<header><div><b>Inventura PFC</b><small id="status">PFC Bar · 120 položek</small></div><button id="menu">☰</button></header>
+<header><div><b>Inventury</b><small id="status"></small></div><button id="menu" aria-label="Nabídka">☰</button></header>
 <main>
 <section id="home" class="screen">
-  <div class="hero"><h1>Inventura PFC Bar</h1><p>Skutečný stav zadávej přímo v telefonu. Každá hodnota se automaticky uloží.</p></div>
-  <div class="summary"><div><strong id="doneCount">0</strong><span>zadáno</span></div><div><strong id="leftCount">120</strong><span>zbývá</span></div><div><strong id="pct">0 %</strong><span>hotovo</span></div></div>
+  <div class="warehouseSwitch"><button data-wh="PFC Bar" class="active">PFC Bar</button><button data-wh="Déčko">Déčko</button></div>
+  <div class="hero"><h1 id="heroTitle"></h1><p id="heroText"></p></div>
+  <div class="summary"><div><strong id="doneCount">0</strong><span>zadáno</span></div><div><strong id="leftCount">0</strong><span>zbývá</span></div><div><strong id="pct">0 %</strong><span>hotovo</span></div></div>
   <button id="start" class="primary big">Pokračovat v inventuře</button>
-  <button id="listBtn" class="secondary big">Zobrazit celý seznam</button>
-  <label class="secondary big file">Načíst nový export Storyous<input id="csv" type="file" accept=".csv,text/csv" hidden></label>
+  <button id="locationsBtn" class="secondary big">Vybrat místo</button>
+  <button id="listBtn" class="secondary big">Souhrn skladových karet</button>
+</section>
+<section id="locations" class="screen hidden">
+  <div class="screenHead"><button id="locationsBack">←</button><h2>Místa inventury</h2></div><div id="locationCards"></div>
 </section>
 <section id="quick" class="screen hidden">
- <div class="quickTop"><button id="backHome">←</button><div id="progressLabel">1 / 120</div><button id="skip">Přeskočit</button></div>
- <progress id="progress" max="120" value="0"></progress>
+ <div class="quickTop"><button id="backHome">←</button><div><b id="locLabel"></b><small id="progressLabel"></small></div><button id="skip">Přeskočit</button></div>
+ <progress id="progress" max="1" value="0"></progress>
  <article class="card">
    <div id="place" class="pill"></div><h2 id="name"></h2><div id="meta" class="meta"></div>
    <div class="qty"><button id="minus">−</button><input id="qty" inputmode="decimal" autocomplete="off" placeholder="0"><span id="unit"></span><button id="plus">+</button></div>
+   <button id="calcToggle" class="calcToggle hidden">Přepočítat z obalů a zbytku</button>
+   <div id="calculator" class="calculator hidden">
+     <label>Počet plných obalů<input id="fullCount" inputmode="decimal" type="number" min="0" step="1" placeholder="0"></label>
+     <label>Objem jednoho obalu<input id="packSize" inputmode="decimal" type="number" min="0" step="0.01"><span>l</span></label>
+     <label>Zbytek v otevřeném obalu<input id="remainderMl" inputmode="numeric" type="number" min="0" step="1" placeholder="0"><span>ml</span></label>
+     <button id="applyCalc" class="primary">Použít výsledek</button><small id="calcResult"></small>
+   </div>
    <div class="quickNums"><button data-v="0">0</button><button data-v="0.25">¼</button><button data-v="0.5">½</button><button data-v="0.75">¾</button><button id="clear">Smazat</button></div>
  </article>
  <div class="nav"><button id="prev">← Předchozí</button><button id="next" class="primary">Další →</button></div>
 </section>
 <section id="list" class="screen hidden">
  <div class="listHead"><button id="listBack">←</button><input id="search" type="search" placeholder="Hledat položku"><select id="category"></select></div>
- <div id="rows"></div>
+ <div class="callout">Součet ze všech míst. Hodnota vpravo je připravená v jednotce skladové karty Storyous.</div><div id="rows"></div>
 </section>
 </main>
-<dialog id="drawer"><div class="drawer"><button id="close">✕</button><h2>Nabídka</h2><button id="export">Export inventury CSV</button><button id="backup">Záloha JSON</button><button id="reset" class="danger">Vymazat zadané hodnoty</button><p>Verze 0.2 · data zůstávají v tomto telefonu.</p></div></dialog>
-<script src="cards.js"></script><script src="app.js"></script></body></html>
+<dialog id="drawer"><div class="drawer"><button id="close">✕</button><h2>Nabídka</h2><button id="export">Export souhrnu CSV</button><button id="backup">Záloha JSON</button><label class="drawerFile">Načíst export Storyous<input id="csv" type="file" accept=".csv,text/csv" hidden></label><button id="reset" class="danger">Vymazat inventuru</button><p>Verze 0.3 · data zůstávají v tomto telefonu.</p></div></dialog>
+<script src="data.js"></script><script src="app.js"></script></body></html>
