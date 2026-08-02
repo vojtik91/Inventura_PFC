@@ -1,11 +1,18 @@
-Inventury PFC + Déčko v0.5
+Inventury PFC + Déčko v0.7
 
-- aktualizováno na 82 skladových karet PFC Bar
-- sudová piva vedená v litrech: zadání plných KEG 50/30/15 l a váhy načatého sudu
-- váha načatého sudu se po odečtení obalu převede přibližně 1 kg = 1 l
-- Spirit vedený v litrech: počet plných lahví + hmotnost načaté lahve
-- editovatelná hmotnost prázdných KEGů, prázdných a plných lahví
-- prázdné sudy se do inventury nezadávají
+Nově používá lokální databázi IndexedDB v telefonu.
+Databáze obsahuje:
+- skladové karty PFC Bar a Déčko,
+- rozepsané inventury,
+- zvolené druhy Permon,
+- kalibrace obalů a vah,
+- základ mapy provozovny.
 
-Nahraj všechny soubory do kořene GitHub Pages repozitáře a nahraď staré soubory.
-Po aktualizaci aplikaci úplně zavři a znovu otevři.
+Předvyplněné kalibrace z papírového záznamu:
+- vybrané prázdné lahve Spiritu,
+- BIB prázdný obal 215 g,
+- Prosecco prázdná lahev 660 g,
+- PU KEG 50 l 12,40 kg, Radegast KEG 50 l 13,05 kg, Permon KEG 30 l 9,75 kg,
+- BPG KEG 50 l 10,90 kg (hodnota je označená k ověření; na záznamu je i 12,05 kg).
+
+Hmotnosti plných lahví a plných BIB je potřeba doplnit při první inventuře.
