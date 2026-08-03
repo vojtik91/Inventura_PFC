@@ -3,3 +3,5 @@
 .selectionActions{display:flex;gap:.6rem;margin:1rem 0}.selectionActions button{flex:1}.permonChoice{display:flex;align-items:center;gap:.8rem;padding:1rem;margin:.55rem 0;background:#fff;border:1px solid #ddd;border-radius:14px}.permonChoice input{width:1.35rem;height:1.35rem}.packageInline{width:100%;margin:.65rem 0}.packageGroup:target{outline:3px solid #ef5350}
 
 .dbStatus{padding:14px;border:1px solid #b7dfc1;background:#f0fff4;border-radius:14px;margin-bottom:18px}.dbStatus b,.dbStatus small{display:block}.dbStatus small{margin-top:4px;color:#456}
+
+.floatingNext{position:fixed;right:14px;z-index:30;min-width:132px;padding:15px 20px;border:0;border-radius:16px;background:#ef5350;color:#fff;font-weight:800;font-size:17px;box-shadow:0 6px 20px #0004;bottom:14px;transition:bottom .12s ease}.floatingNext:active{transform:translateY(1px)}

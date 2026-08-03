@@ -1,18 +1,10 @@
-Inventury PFC + Déčko v0.7
+Inventury PFC + Déčko v0.8
 
-Nově používá lokální databázi IndexedDB v telefonu.
-Databáze obsahuje:
-- skladové karty PFC Bar a Déčko,
-- rozepsané inventury,
-- zvolené druhy Permon,
-- kalibrace obalů a vah,
-- základ mapy provozovny.
+Spirit nyní podporuje dvě metody:
+1. Přesná: hmotnost prázdné i plné lahve + objem.
+2. Orientační: hmotnost prázdné lahve + objem + odhad hustoty.
 
-Předvyplněné kalibrace z papírového záznamu:
-- vybrané prázdné lahve Spiritu,
-- BIB prázdný obal 215 g,
-- Prosecco prázdná lahev 660 g,
-- PU KEG 50 l 12,40 kg, Radegast KEG 50 l 13,05 kg, Permon KEG 30 l 9,75 kg,
-- BPG KEG 50 l 10,90 kg (hodnota je označená k ověření; na záznamu je i 12,05 kg).
+Pokud není vyplněná plná lahev, aplikace automaticky použije orientační režim. Výchozí hustota je 0,95 kg/l a lze ji upravit u každé položky v Obalech. Dosavadní inventura a kalibrace v telefonu zůstávají zachované.
 
-Hmotnosti plných lahví a plných BIB je potřeba doplnit při první inventuře.
+
+Úprava 0.8.1: při otevřené numerické klávesnici se zobrazuje plovoucí tlačítko Další nad klávesnicí. Enter/Hotovo rovněž uloží a přejde na další položku.
